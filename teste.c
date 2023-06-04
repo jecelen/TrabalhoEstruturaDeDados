@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include "kdtree.h"
-#include <mysql.h>
 #include <assert.h>
 
 typedef struct _reg{
@@ -104,16 +103,6 @@ void teste_def_predecessor(arv *parv){
 void teste_destroi(arv **parv){
 	(*parv)->r = destroi((*parv)->r);
 	assert((*parv)->r == NULL);
-}
-
-int main(){
-	arv *parv;
-
-	teste_constroi(&parv);
-	teste_inserir(&parv);
-	teste_def_sucessor(parv);
-	teste_def_predecessor(parv);
-	teste_destroi(&parv);		
 }
 
 
