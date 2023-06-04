@@ -8,21 +8,21 @@ void insere(arv *parv, void *preg){
 	int prof = 0;
 	ptr = &(parv->r);
 	p = *ptr;
-	pt_pai = NULL; 
+	pt_pai = NULL;
 
 	while(p!=NULL){
-		pt_pai = p; 
-		
+		pt_pai = p;
+
 		if(compara(p->reg, preg, prof) > 0){
 			ptr = &(p->esq);
 			p = *ptr;
 		}
-		
+
 		else{
 			ptr = &(p->dir);
 			p = *ptr;
 		}
-		
+
 		prof+=1;
 	}
 
@@ -35,30 +35,27 @@ void insere(arv *parv, void *preg){
 	}
 }
 
-arv* constroi(arv *parv){
-	parv->r = NULL;
-	return parv;
-
+void constroi(arv **parv){
+    (*parv) = malloc(sizeof(arv));
+	(*parv)->r = NULL;
 }
 
 no* busca(arv *parv, void *preg){
 	no* p = parv->r;
 	int prof = 0;
-	while (p!=NULL && (compara(p->reg, preg, 0)!=0 || compara(p->reg, preg, 1)!=0)){
+	while (p!=NULL && (compara(p->reg, preg, prof)!=0)){
 		if(compara(p->reg, preg, prof) > 0){
 			p = p->esq;
-			printf("esq\n");
 		}
 		else{
 			p = p->dir;
-			printf("dir\n");
 		}
-		prof+=1;
+		prof++;
 	}
 	return p;
 }
 
-no* defineSucessor(arv *parv, no *ptr){
+no* defineSucessor(no *ptr){
 	if(ptr->dir!=NULL){
 		ptr = ptr->dir;
 		while(ptr->esq!=NULL){
@@ -77,7 +74,7 @@ no* defineSucessor(arv *parv, no *ptr){
 	}
 }
 
-no* definePredecessor(arv *parv, no *ptr){
+no* definePredecessor(no *ptr){
 	if(ptr->esq!=NULL){
 		ptr = ptr->esq;
 		while(ptr->dir!=NULL){
