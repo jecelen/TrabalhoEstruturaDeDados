@@ -60,6 +60,14 @@ float compara(const void *a, const void *b, int prof){
 int main(){
     int opcid;
     int opff;
+	arv *parv_teste;
+
+	teste_constroi(&parv_teste);
+	teste_inserir(&parv_teste);
+	teste_def_sucessor(parv_teste);
+	teste_def_predecessor(parv_teste);
+	teste_destroi(&parv_teste);		
+}
 
     do{
         printf("1. Encontrar o vizinho mais próximo de um município.\n");
