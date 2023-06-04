@@ -5,33 +5,8 @@
 
 float compara(const void *a, const void *b, int prof){
 	int dimensao = (prof%2);
-    if(op == 1){
-	if (dimensao==0){
-		if ((*(reg*)a).longt < (*(reg*)b).longt){
-			return -1;
-		}
-		else if ((*(reg*)a).longt > (*(reg*)b).longt){
-			return 1;
-		}
-		else{
-			return 0;
-		}
-	}
-	else{
-		if ((*(reg*)a).lat < (*(reg*)b).lat){
-			return -1;
-		}
-		else if ((*(reg*)a).lat > (*(reg*)b).lat){
-			return 1;
-		}
-		else{
-			return 0;
-		}
-	}
-}
-
-    else{
-        if (dimensao==0){
+    if(op == 2){
+         if (dimensao==0){
             if ((*(regff*)a).longt < (*(regff*)b).longt){
                 return -1;
             }
@@ -54,20 +29,48 @@ float compara(const void *a, const void *b, int prof){
             }
         }
     }
+
+
+    else{
+
+        if (dimensao==0){
+		if ((*(reg*)a).longt < (*(reg*)b).longt){
+			return -1;
+		}
+		else if ((*(reg*)a).longt > (*(reg*)b).longt){
+			return 1;
+		}
+		else{
+			return 0;
+		}
+	}
+	else{
+		if ((*(reg*)a).lat < (*(reg*)b).lat){
+			return -1;
+		}
+		else if ((*(reg*)a).lat > (*(reg*)b).lat){
+			return 1;
+		}
+		else{
+			return 0;
+            }
+        }
+    }
 }
 
 
 int main(){
     int opcid;
     int opff;
+
 	arv *parv_teste;
 
 	teste_constroi(&parv_teste);
 	teste_inserir(&parv_teste);
 	teste_def_sucessor(parv_teste);
 	teste_def_predecessor(parv_teste);
-	teste_destroi(&parv_teste);		
-}
+	teste_destroi(&parv_teste);
+
 
     do{
         printf("1. Encontrar o vizinho mais próximo de um município.\n");

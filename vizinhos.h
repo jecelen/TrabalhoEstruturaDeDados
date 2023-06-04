@@ -46,6 +46,12 @@ void encontrarVizinhosCidades(arv *parv);
 float calculoDistanciaFF(no* p, no* b);
 float calculoDistanciaMunicipio(no* p, no* b);
 
+void teste_constroi(arv **parv);
+void teste_inserir(arv **parv);
+void teste_def_sucessor(arv *parv);
+void teste_def_predecessor(arv *parv);
+void teste_destroi(arv **parv);
+
 int op;
 
 #endif
